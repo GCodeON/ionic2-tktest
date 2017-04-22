@@ -2,6 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
 
+
+import { LobbyPage } from '../lobby/lobby';
+
 /**
  * Generated class for the Results page.
  *
@@ -16,14 +19,20 @@ import { Chart } from 'chart.js';
 export class ResultsPage {
   @ViewChild('barCanvas') barCanvas;
   barChart: any;
+  test:  any = {};
+  showHome: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+  
+   toLobbyPage(click) {
+    this.navCtrl.setRoot(LobbyPage);
+  }
+  
 
   ionViewDidLoad() {
-    var testResults = (this.navParams.get("test"));
-    console.log(Math.round((testResults.Avoiding / 12) * 100));
     console.log('ionViewDidLoad ResultsPage');
-    
+    var testResults = this.navParams.get("test");
+    this.showHome = this.navParams.get("showHome");
     this.barChart = new Chart(this.barCanvas.nativeElement, {
      type: 'bar',
      data: {

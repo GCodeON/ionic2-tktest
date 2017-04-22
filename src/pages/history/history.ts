@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ResultsPage } from '../results/results';
+import { QuestionPage } from '../question/question';
 
 
 /**
@@ -28,7 +29,8 @@ export class HistoryPage {
 
   viewResults(test) {
     this.navCtrl.push(ResultsPage, {
-      test: test
+      test: test,
+      showHome: false
     });
   }
 
