@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { ResultsPage } from '../results/results';
+
+
 /**
  * Generated class for the History page.
  *
@@ -23,5 +26,10 @@ export class HistoryPage {
     
   }
 
+  viewResults(test) {
+    this.navCtrl.push(ResultsPage, {
+      test: test
+    });
+  }
 
 }
