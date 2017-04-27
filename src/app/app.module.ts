@@ -10,28 +10,41 @@ import { QuestionPage } from '../pages/question/question';
 import { HistoryPage } from '../pages/history/history';
 import { ResultsPage } from '../pages/results/results';
 
+import { Landing } from '../pages/landing/landing';
+import { Register } from '../pages/register/register';
+import { Login } from '../pages/login/login';
 
+import { AppUser } from '../providers/app-user';
+import { Questions } from '../providers/questions';
+import { TestResults } from '../providers/test-results';
+
+import { HttpModule } from '@angular/http'
 
 let injections: any[] = [
     MyApp,
     LobbyPage,
     QuestionPage,
     HistoryPage,
-    ResultsPage
+    ResultsPage,
+    Landing,
+    Register,
+    Login
   ]
 
 @NgModule({
   declarations: injections,
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppUser, Questions, TestResults
   ]
 })
 export class AppModule {}
